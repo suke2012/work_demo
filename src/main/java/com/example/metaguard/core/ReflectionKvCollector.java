@@ -10,7 +10,16 @@ import java.util.*;
 public class ReflectionKvCollector implements KvCollector {
 
     private static final Set<Class<?>> LEAF = Collections.unmodifiableSet(
-            new HashSet<Class<?>>(Arrays.asList(String.class, Number.class, Boolean.class)));
+            new HashSet<Class<?>>(Arrays.asList(String.class, Boolean.class)));
+
+    private static boolean isLeaf(Object obj) {
+        if (obj == null) return true;
+        Class<?> clazz = obj.getClass();
+        return LEAF.contains(clazz)
+                || clazz.isPrimitive()
+                || Number.class.isAssignableFrom(clazz)
+                || clazz.equals(Character.class);
+    }
 
     @Override
     public Map<String, String> collect(Object root) {
@@ -26,7 +35,7 @@ public class ReflectionKvCollector implements KvCollector {
             if (obj == null) {
                 continue;
             }
-            if (LEAF.contains(obj.getClass())) {
+            if (isLeaf(obj)) {
                 continue;
             }
 
