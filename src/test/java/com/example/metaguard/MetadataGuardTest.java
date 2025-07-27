@@ -35,9 +35,18 @@ public class MetadataGuardTest {
                 .isInstanceOf(MetaViolationException.class);
     }
 
+    @Test
+    void invalid_sysFieldId_violate() {
+        AccountDto dto = goodDto();
+        dto.setSysFieldId("abcd");
+        assertThatThrownBy(() -> guard.validate(dto, MetadataGuard.Mode.INTERCEPT, "ACCOUNT_API"))
+                .isInstanceOf(MetaViolationException.class);
+    }
+
     private AccountDto goodDto() {
         AccountDto dto = new AccountDto();
         dto.setSource("ACCOUNT_API");
+        dto.setSysFieldId("1234");
         Map<String,String> ext = new HashMap<String,String>();
         ext.put("amount","123");
         dto.setExtInfo(ext);
@@ -50,6 +59,7 @@ public class MetadataGuardTest {
     private AccountDto badDto() {
         AccountDto dto = new AccountDto();
         dto.setSource("BAD_API");
+        dto.setSysFieldId("abcd");
         Map<String,String> ext = new HashMap<String,String>();
         ext.put("amount","abc");
         dto.setExtInfo(ext);

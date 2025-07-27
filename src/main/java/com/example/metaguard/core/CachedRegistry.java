@@ -37,6 +37,7 @@ public class CachedRegistry implements MetadataRegistry {
         m.put("from", new MetaRule("from",
                 new HashSet<String>(Arrays.asList("ACCOUNT_API")), null));
         m.put("amount", new MetaRule("amount", null, "^[0-9]+$"));
+        m.put("sysFieldId", new MetaRule("sysFieldId", null, "^[0-9]{4}$"));
         return m;
     }
 }
