@@ -1,0 +1,86 @@
+###############
+# Maven / Gradle
+###############
+# Maven 构建输出
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# 本地 Maven 缓存（极端情况自定义 .m2，通常不用忽略）
+#/.m2/repository/
+
+###############
+# IntelliJ IDEA
+###############
+.idea/
+*.iws
+*.iml
+*.ipr
+# IDEA 编译缓存
+/out/
+# Rider / WebStorm / etc. 共享
+/.idea/
+
+###############
+# VS Code
+###############
+.vscode/
+
+###############
+# OS / 终端
+###############
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+###############
+# Logs & temp
+###############
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+###############
+# Java / Lombok / Annotation processors
+###############
+# Lombok 生成的 delombok 代码
+delombok/
+# Javadoc
+/doc/
+
+###############
+# Spring Boot
+###############
+# 打包的可执行 jar
+*.jar
+*.war
+
+###############
+# Test output
+###############
+/surefire-reports/
+/failsafe-reports/
+/jacoco.exec
+
+###############
+# IDE-specific HTTP client (if you use .http files retain them)
+###############
+http-client.env.json
+
+###############
+# Git
+###############
+# 忽略项目根的 git 属性备份
+.gitattributes~
+
+# End of file
