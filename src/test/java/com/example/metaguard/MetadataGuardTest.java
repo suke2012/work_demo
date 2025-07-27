@@ -38,6 +38,8 @@ public class MetadataGuardTest {
     private AccountDto goodDto() {
         AccountDto dto = new AccountDto();
         dto.setSource("ACCOUNT_API");
+        dto.setKvId("ID123");
+        dto.setSysFieldId("FIELD1");
         Map<String,String> ext = new HashMap<String,String>();
         ext.put("amount","123");
         dto.setExtInfo(ext);
@@ -50,6 +52,7 @@ public class MetadataGuardTest {
     private AccountDto badDto() {
         AccountDto dto = new AccountDto();
         dto.setSource("BAD_API");
+        dto.setKvId("ID 123");
         Map<String,String> ext = new HashMap<String,String>();
         ext.put("amount","abc");
         dto.setExtInfo(ext);
